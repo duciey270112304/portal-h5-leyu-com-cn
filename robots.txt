@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://duciey270112304.github.io/portal-h5-leyu-com-cn/sitemap.xml
