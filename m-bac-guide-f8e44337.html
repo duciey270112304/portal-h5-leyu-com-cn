@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百家乐 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #f9e3c5 0%, #f7d5a8 40%, #f2c68d 100%);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      color: #2f2a24;
+    }
+    .card {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 250, 240, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 36px;
+      padding: 2.8rem 2.5rem 3rem;
+      box-shadow: 0 12px 28px rgba(140, 90, 40, 0.18), 0 4px 10px rgba(90, 60, 30, 0.08);
+      transition: box-shadow 0.25s;
+    }
+    .card:hover {
+      box-shadow: 0 16px 36px rgba(150, 95, 35, 0.22);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+      color: #4d331d;
+      border-left: 6px solid #c28f5b;
+      padding-left: 1rem;
+    }
+    .subhead {
+      font-size: 1rem;
+      color: #7b5f42;
+      margin-bottom: 2rem;
+      padding-left: 1.4rem;
+      font-weight: 380;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+      background: #fefbf5;
+      padding: 1.2rem 1.5rem;
+      border-radius: 24px;
+      border: 1px solid #eedcc7;
+    }
+    .intro strong {
+      color: #7f4f28;
+      font-weight: 500;
+    }
+
+    .highlight-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .highlight-item {
+      flex: 1 1 160px;
+      background: #faf1e4;
+      padding: 1.2rem 1rem 1rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #e6d2bb;
+      transition: transform 0.15s, background 0.2s;
+    }
+    .highlight-item:hover {
+      background: #f5e5d1;
+      transform: translateY(-3px);
+    }
+    .highlight-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #533d28;
+      margin-bottom: 0.35rem;
+    }
+    .highlight-item p {
+      font-size: 0.92rem;
+      color: #5f4a33;
+      line-height: 1.5;
+    }
+
+    .usage-note {
+      background: #f4e6d3;
+      padding: 1.4rem 1.6rem;
+      border-radius: 24px;
+      margin: 1.8rem 0 2rem;
+    }
+    .usage-note h2 {
+      font-size: 1.2rem;
+      font-weight: 470;
+      color: #4d3522;
+      margin-bottom: 0.7rem;
+    }
+    .usage-note p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #3e2d1c;
+    }
+    .usage-note code {
+      background: #e9d8c4;
+      padding: 0.1rem 0.4rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+
+    .faq-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem 1.8rem;
+      margin: 2.2rem 0 1.8rem;
+    }
+    .faq-item {
+      background: #f8efe3;
+      border-radius: 20px;
+      padding: 0.9rem 1.2rem;
+      border-left: 4px solid #c79a6b;
+    }
+    .faq-item dt {
+      font-weight: 490;
+      color: #3f2e1b;
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item dd {
+      font-size: 0.9rem;
+      color: #5c4631;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .link-sentence {
+      background: #ede0cf;
+      border-radius: 60px;
+      padding: 0.8rem 1.6rem;
+      display: inline-block;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      border: 1px solid #dbbc9b;
+    }
+    .link-sentence a {
+      color: #7c4d27;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #b8895b;
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.15s;
+      cursor: pointer;
+    }
+    .link-sentence a:hover {
+      border-bottom-color: #6f3f1a;
+      color: #613c1e;
+    }
+
+    .disclaimer {
+      font-size: 0.82rem;
+      color: #856e55;
+      border-top: 1px dashed #d6bea7;
+      padding-top: 1.4rem;
+      margin-top: 2rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 630px) {
+      .card {
+        padding: 1.8rem 1.2rem 2rem;
+        border-radius: 28px;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        padding-left: 1rem;
+        font-size: 0.9rem;
+      }
+      .intro {
+        padding: 1rem 1rem;
+      }
+      .highlight-grid {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .faq-mini {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .usage-note {
+        padding: 1rem 1.2rem;
+      }
+      .link-sentence {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .card {
+        border-radius: 22px;
+        padding: 1.4rem 0.9rem 1.6rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>百家乐</h1>
+    <div class="subhead">产品说明 · 从辨识到使用</div>
+
+    <div class="intro">
+      <strong>m-bac.com</strong> 是一个围绕<strong>百家乐</strong>主题提供信息与工具支持的网站。  
+      当你第一眼看到这个站点，很可能希望快速确认：<br>
+      “这里能帮我理解什么？跟其他同类内容有何不同？”  
+      以下内容正是从产品视角展开的摘要——让判断变得更直接。
+    </div>
+
+    <div class="highlight-grid">
+      <div class="highlight-item">
+        <h3>⚡ 聚焦</h3>
+        <p>专一于百家乐相关资讯、策略参考与概念梳理，不堆砌无关内容。</p>
+      </div>
+      <div class="highlight-item">
+        <h3>📊 结构化</h3>
+        <p>从基础术语到常见规则，以条目与场景方式组织，减少信息噪音。</p>
+      </div>
+      <div class="highlight-item">
+        <h3>🔍 可检索</h3>
+        <p>页面内对关键概念做清晰标注，便于快速定位要点。</p>
+      </div>
+      <div class="highlight-item">
+        <h3>🧩 扩展性</h3>
+        <p>持续更新使用场景与常见疑问，帮助用户平滑理解。</p>
+      </div>
+    </div>
+
+    <div class="usage-note">
+      <h2>📌 适合这样使用</h2>
+      <p>
+        如果你刚开始接触 <strong>百家乐</strong> 或者想系统梳理已有认识，可以直接浏览网站中的分类模块；  
+        对于有一定经验的人，可以通过对比不同局例与说明，形成自己的判断框架。  
+        建议按顺序阅读「术语—规则—场景—常见问题」板块，每个部分末尾附带简短总结。  
+        另外，移动端自适应排版让碎片时间翻阅也足够舒适。
+      </p>
+    </div>
+
+    <div class="faq-mini">
+      <div class="faq-item">
+        <dt>❓ 网站内容权威吗？</dt>
+        <dd>所有资料均基于公开规则与常见实践整理，不涉及承诺或预测，仅作知识参考。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>❓ 是否需要注册？</dt>
+        <dd>无需注册或登录，所有说明内容均直接可见，无隐藏门槛。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>❓ 信息更新频率？</dt>
+        <dd>随规则环境与用户反馈适度更新，保持内容时效性与准确性。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>❓ 有没有互动工具？</dt>
+        <dd>部分页面包含模拟示例与对比表格，辅助理解逻辑，不具备实际对局功能。</dd>
+      </div>
+    </div>
+
+    <div class="link-sentence">
+      如果你希望直接了解 <a href="https://m-bac.com">百家乐</a> 的具体分类与术语体系，可以从站点首页开始浏览。
+    </div>
+
+    <div class="disclaimer">
+      ※ 本页面为产品介绍型说明页，内容仅供学习与参考，不构成任何形式的操作指导或建议。  
+      用户应基于自身判断与所在地法规使用相关信息。
+    </div>
+  </div>
+</body>
+</html>
