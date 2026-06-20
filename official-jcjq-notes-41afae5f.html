@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩足球 · 资料索引与导航站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 深色头图 + 导航 */
+        .hero-nav {
+            background: linear-gradient(145deg, #0b1a2b 0%, #162b41 100%);
+            color: #e8edf3;
+            padding: 16px 0 0 0;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .site-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #d6e2f0;
+        }
+
+        .site-title span {
+            color: #f9c74f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #b0c7de;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #f9c74f;
+            border-bottom-color: #f9c74f;
+        }
+
+        .hero-content {
+            padding: 60px 0 48px 0;
+        }
+
+        .hero-content h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 18px;
+            color: #ffffff;
+            max-width: 800px;
+        }
+
+        .hero-content h1 i {
+            font-style: normal;
+            color: #f9c74f;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #cbdae8;
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(249, 199, 79, 0.15);
+            color: #f9c74f;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        /* 正文浅色区 */
+        .main-section {
+            background: #ffffff;
+            border-radius: 28px 28px 0 0;
+            margin-top: -28px;
+            position: relative;
+            padding: 48px 0 20px 0;
+            box-shadow: 0 -6px 20px rgba(0,0,0,0.02);
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0b1a2b;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: #4a5a6e;
+            margin-bottom: 32px;
+            border-left: 4px solid #f9c74f;
+            padding-left: 16px;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            margin-bottom: 32px;
+            background: #f8faff;
+            padding: 20px 24px;
+            border-radius: 16px;
+            border: 1px solid #e8edf5;
+        }
+
+        .intro-text a {
+            color: #1f6390;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+        }
+
+        .intro-text a:hover {
+            color: #f9c74f;
+            text-decoration-color: #f9c74f;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin: 40px 0 36px;
+        }
+
+        .card {
+            background: #fafcff;
+            border-radius: 18px;
+            padding: 28px 20px 24px;
+            border: 1px solid #e4eaf2;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            transform: translateY(-3px);
+            border-color: #d0dcec;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #132a3c;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3a4b5e;
+            margin-bottom: 10px;
+        }
+
+        .card .meta-tip {
+            font-size: 0.85rem;
+            color: #6f7e91;
+            background: #eef3fa;
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 30px;
+        }
+
+        .info-block {
+            background: #f1f5fc;
+            border-radius: 20px;
+            padding: 28px 28px 24px;
+            margin: 44px 0 36px;
+            border-left: 6px solid #1f6390;
+        }
+
+        .info-block h3 {
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+            font-weight: 600;
+            color: #0b1a2b;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-block li {
+            padding: 6px 0 6px 28px;
+            position: relative;
+            margin-bottom: 4px;
+            color: #1f2e40;
+        }
+
+        .info-block li::before {
+            content: "▹";
+            position: absolute;
+            left: 4px;
+            color: #1f6390;
+            font-size: 1.2rem;
+        }
+
+        .faq-mini {
+            margin: 36px 0 24px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e6ecf4;
+            padding: 16px 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0b1a2b;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #3e4f62;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: #5b6f83;
+            border-top: 1px solid #e2e9f2;
+            padding-top: 24px;
+            margin: 36px 0 8px;
+            text-align: center;
+        }
+
+        .footnote a {
+            color: #1f6390;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 1.7rem;
+            }
+
+            .nav-links {
+                gap: 16px;
+                margin-top: 4px;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-block {
+                padding: 20px;
+            }
+
+            .hero-content {
+                padding: 36px 0 32px;
+            }
+
+            .main-section {
+                padding: 28px 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 + 导航 -->
+<header class="hero-nav">
+    <div class="container">
+        <div class="nav-bar">
+            <div class="site-title">⏺ <span>资料索引</span> · 竞彩足球</div>
+            <div class="nav-links">
+                <a href="#">概览</a>
+                <a href="#">数据</a>
+                <a href="#">场景</a>
+                <a href="#">说明</a>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>足球赛事信息整理<br>从资料角度理解 <i>竞彩足球</i></h1>
+            <p>一份轻量导航页，聚焦赛事数据、常见场景与基础说明。适合希望系统查阅竞彩足球相关信息的浏览者。</p>
+            <span class="hero-tag">⚽ 内容方向 · 资料索引</span>
+        </div>
+    </div>
+</header>
+
+<!-- 浅色正文区 -->
+<section class="main-section">
+    <div class="container">
+
+        <!-- 核心介绍段落，自然嵌入链接 -->
+        <div class="intro-text">
+            <strong>关于页面</strong> —— 本站围绕足球赛事竞猜的信息索引，不对具体赛果进行预测。  
+            若您希望查阅完整的赛事数据与官方玩法框架，可直接参考 <a href="https://official-jcjq.com">竞彩足球</a> 所提供的基础信息。  
+            以下内容从资料整理角度归纳了三个常见应用场景以及一些基础说明，供浏览时参考。
+        </div>
+
+        <!-- 三个场景模块 -->
+        <h2 class="section-title">三个常见信息场景</h2>
+        <div class="section-sub">基于日常资料查阅与信息组织的方向</div>
+
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-icon">📋</span>
+                <h3>赛事数据查阅</h3>
+                <p>联赛、杯赛的近期战绩、交锋记录、阵容简报等。许多用户习惯赛前集中浏览数据面板，辅助形成自己的判断。</p>
+                <span class="meta-tip">数据时效性 · 赛前24h</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧩</span>
+                <h3>玩法结构梳理</h3>
+                <p>胜平负、让球、比分、总进球、半全场等基础选项。了解玩法分类有助于快速定位自己关注的信息维度。</p>
+                <span class="meta-tip">分类索引 · 常见5类</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">📎</span>
+                <h3>信息验证与对比</h3>
+                <p>不同资讯源之间的数据比对，比如赔率变动、伤停名单、天气影响。资料整理阶段，交叉验证能提高信息可靠度。</p>
+                <span class="meta-tip">交叉参考 · 多源对比</span>
+            </div>
+        </div>
+
+        <!-- 常见说明块（FAQ摘要 + 提示） -->
+        <div class="info-block">
+            <h3>📌 常见说明摘要</h3>
+            <ul>
+                <li><strong>关于数据来源</strong> – 页面所引信息均来自公开赛事统计，不包含任何内幕或预测性结论。</li>
+                <li><strong>玩法与规则</strong> – 具体选项定义、奖金计算、无效场次处理等，建议直接查阅官方说明。</li>
+                <li><strong>理性参考</strong> – 资料整理仅辅助信息获取，不构成任何决策建议。</li>
+            </ul>
+        </div>
+
+        <!-- FAQ 微型 -->
+        <div class="faq-mini">
+            <h3 style="font-size:1.2rem; font-weight:600; margin-bottom:12px; color:#0b1a2b;">❓ 页面常见疑问</h3>
+            <div class="faq-item">
+                <strong>这里提供实时赔率吗？</strong>
+                <p>不提供。页面定位为信息索引与资料说明，不嵌入实时数据流。如需查看即时数值，可参考赛事数据平台。</p>
+            </div>
+            <div class="faq-item">
+                <strong>为什么叫“资料索引”方向？</strong>
+                <p>因为内容侧重于如何组织、分类和呈现已有信息，帮助浏览者建立清晰的查阅框架，而非直接给出判断。</p>
+            </div>
+            <div class="faq-item">
+                <strong>有没有特定联赛的专门说明？</strong>
+                <p>目前页面为通用导航版本，后续可能扩展联赛专题模块。当前信息覆盖主流赛事的基本资料分类。</p>
+            </div>
+        </div>
+
+        <!-- 指向竞彩足球的链接（自然嵌入句子，符合要求） -->
+        <div style="background:#f8faff; padding:16px 20px; border-radius:16px; margin:28px 0 12px; border:1px solid #e4ecf6;">
+            <p style="margin:0; font-size:0.98rem;">
+                🔗 若需要查阅官方赛事框架与完整玩法，可以了解 <a href="https://official-jcjq.com" style="color:#1f6390; text-decoration:underline; text-underline-offset:3px; font-weight:500;">竞彩足球</a> 中提供的基础规则与赛事列表。
+            </p>
+        </div>
+
+        <div class="footnote">
+            <p>页面内容仅用于信息索引与资料整理 · 不构成任何决策建议 · 数据请以官方实时信息为准</p>
+            <p style="margin-top:6px;">—— 导航站 · 版本 2025 ——</p>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
