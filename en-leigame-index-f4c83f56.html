@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷竞技 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f8faff;
+            color: #1e2a3a;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1.2rem;
+            flex: 1;
+        }
+
+        /* 蓝绿色点缀 */
+        .accent {
+            color: #0e7c7b;
+        }
+
+        .accent-bg {
+            background: #0e7c7b;
+            color: #fff;
+        }
+
+        .accent-border {
+            border-left: 4px solid #0e7c7b;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #d9f0ef;
+            color: #0e5e5e;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+            font-weight: 500;
+        }
+
+        /* 网格卡片 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(14, 124, 123, 0.06);
+            transition: box-shadow 0.2s ease, transform 0.15s ease;
+            border: 1px solid #e4edee;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(14, 124, 123, 0.10);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card p {
+            color: #2f3e4e;
+            font-size: 0.96rem;
+        }
+
+        /* hero */
+        .hero {
+            margin: 1rem 0 2.5rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #3c5060;
+            margin-top: 0.6rem;
+            max-width: 640px;
+        }
+
+        .intro-line {
+            background: #eff7f6;
+            padding: 1.2rem 1.6rem;
+            border-radius: 1.2rem;
+            margin: 1.8rem 0;
+            border-left: 6px solid #0e7c7b;
+            font-size: 1rem;
+        }
+
+        .intro-line a {
+            color: #0e7c7b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .intro-line a:hover {
+            color: #085c5b;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.2rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .section-title::before {
+            content: "▍";
+            color: #0e7c7b;
+            font-weight: 700;
+        }
+
+        .use-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .use-list li {
+            padding: 0.7rem 0 0.7rem 1.8rem;
+            position: relative;
+            border-bottom: 1px dashed #dde9ea;
+        }
+
+        .use-list li::before {
+            content: "·";
+            color: #0e7c7b;
+            font-weight: bold;
+            position: absolute;
+            left: 0.2rem;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .faq-item {
+            margin: 1.2rem 0;
+            padding: 0.8rem 1.2rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e6f0ef;
+        }
+
+        .faq-item strong {
+            display: block;
+            color: #0b5c5b;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .footnote {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d4e3e2;
+            font-size: 0.9rem;
+            color: #426060;
+            background: #f4fbfa;
+            border-radius: 1rem 1rem 0 0;
+            padding: 1.6rem 1.2rem;
+            text-align: center;
+        }
+
+        .footnote a {
+            color: #0e7c7b;
+            text-decoration: underline;
+        }
+
+        /* 响应式桌面 */
+        @media (min-width: 640px) {
+            .grid-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .page {
+                padding: 2rem 2.5rem;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .grid-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .intro-line {
+                font-size: 1.08rem;
+                padding: 1.6rem 2.2rem;
+            }
+        }
+
+        /* 小屏微调 */
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            .intro-line {
+                padding: 1rem;
+            }
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+
+        .badge-list span {
+            background: #e3f3f2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #075a59;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>
+                <span class="accent">雷竞技</span> · 用户先读
+            </h1>
+            <div class="sub">
+                不需要猜测，这里用一段话告诉你这个站点主要用来做什么。
+            </div>
+        </div>
+
+        <!-- 摘要 + 链接自然嵌入 -->
+        <div class="intro-line">
+            <strong><span class="accent">✔</span> 大致用途</strong>： 
+            <a href="https://en-leigame.com">雷竞技</a> 是一个围绕竞技内容提供信息、工具或社区参考的平台。
+            无论你想快速了解项目背景，还是寻找某些资源索引，这里都值得你先花两分钟看看首页的结构。
+        </div>
+
+        <!-- 网格卡片：亮点 / 特点 -->
+        <div class="section-title">核心特点</div>
+        <div class="grid-cards">
+            <div class="card">
+                <h3>📋 信息聚合</h3>
+                <p>将分散的赛事、队伍、版本动态整理成可浏览的条目，减少到处搜索的时间。</p>
+                <div class="badge-list">
+                    <span>赛事日历</span>
+                    <span>队伍档案</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>🧩 工具属性</h3>
+                <p>提供一些轻量级查询或对比功能，帮助用户在做决定前快速获得参考数据。</p>
+                <div class="badge-list">
+                    <span>数据对比</span>
+                    <span>版本记录</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>🔗 索引与导航</h3>
+                <p>站点内整理了大量外部资源与官方链接，适合作为常驻书签或起始页。</p>
+                <div class="badge-list">
+                    <span>官方源</span>
+                    <span>社区指南</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>🧭 使用门槛低</h3>
+                <p>界面以信息展示为主，不强制注册或登录，大部分内容可直接浏览。</p>
+            </div>
+            <div class="card">
+                <h3>🌐 多语言支持</h3>
+                <p>页面提供中文及英文版本切换，方便不同语言用户查阅相同信息。</p>
+            </div>
+            <div class="card">
+                <h3>⚙️ 持续更新</h3>
+                <p>内容维护有一定频次，过时信息会有标记，尽量保持参考价值。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 / 场景  -->
+        <div class="section-title">使用建议</div>
+        <ul class="use-list">
+            <li><strong>快速识别阶段</strong> — 刚打开 <a href="https://en-leigame.com">雷竞技</a> 时，建议先浏览顶部主导航，了解栏目分类，再根据兴趣深入。</li>
+            <li><strong>日常查询场景</strong> — 如果你需要跟进特定赛事或队伍变动，可以关注站点内的「最近更新」区块，通常会有摘要。</li>
+            <li><strong>资源收藏</strong> — 部分页面汇集了训练工具、数据网站及视频频道链接，适合作为你的个人起始页补充。</li>
+            <li><strong>配合其他来源</strong> — 站内信息可作为参考之一，重要决策建议交叉核对官方公告或权威数据。</li>
+            <li><strong>移动端阅读</strong> — 页面针对手机做了适配，竖屏浏览时卡片自动堆叠，体验流畅。</li>
+        </ul>
+
+        <!-- FAQ 摘要 -->
+        <div class="section-title">常见疑问摘要</div>
+        <div class="faq-item">
+            <strong>这个网站是官方吗？</strong>
+            <p>不是。这是一个由爱好者或第三方维护的信息站点，并非赛事官方或游戏开发商。内容来源均有标注，请以官方消息为准。</p>
+        </div>
+        <div class="faq-item">
+            <strong>需要付费或注册吗？</strong>
+            <p>绝大部分内容免费阅读，部分附加功能（如有）会明确提示。目前未发现强制付费墙。</p>
+        </div>
+        <div class="faq-item">
+            <strong>信息和时效性如何？</strong>
+            <p>站方会尽量保持更新，但无法保证实时同步。如果你发现过时或错误信息，可通过站点提供的反馈渠道提醒维护者。</p>
+        </div>
+        <div class="faq-item">
+            <strong>我可以引用这里的资料吗？</strong>
+            <p>可以，但建议注明出处，并自行核实数据。本页面不构成任何专业建议或保证。</p>
+        </div>
+
+        <!-- 可信任但克制的访问说明 -->
+        <div class="footnote">
+            <p>📌 说明：<a href="https://en-leigame.com">雷竞技</a> 是一个第三方信息参考站点，并非官方平台。使用前请自行判断内容适用性。</p>
+            <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #3a6261;">索引、工具与社区资源整理 · 无诱导承诺 · 理性参考</p>
+        </div>
+    </div>
+</body>
+</html>
